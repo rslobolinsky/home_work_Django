@@ -12,8 +12,8 @@ class Category(models.Model):
         return f'{self.name} ({self.description})'
 
     class Meta:
-        verbose_name = 'Category'
-        verbose_name_plural = 'Categories'
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
 
 
 class Product(models.Model):
@@ -31,5 +31,5 @@ class Product(models.Model):
         return f'{self.name} ({self.description}) ({self.category}) ({self.price})'
 
     class Meta:
-        verbose_name = 'Product'
-        verbose_name_plural = 'Products'
+        verbose_name = 'Продукт'
+        verbose_name_plural = 'Продукты'
