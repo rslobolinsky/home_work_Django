@@ -24,9 +24,8 @@ def contact(request):
 
 
 def product(request, pk):
-    products = Product.objects.get(pk=pk)
     context = {
-        'object': products,
+        'object': Product.objects.get(pk=pk),
         'title': 'Описание продукта',
     }
     return render(request, 'catalog/product.html', context)
