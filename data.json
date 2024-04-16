@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
       "name": "Фрукты",
-      "description": "Фрукты"
+      "description": "Сладкие"
     }
   },
   {
@@ -12,20 +12,20 @@
     "pk": 2,
     "fields": {
       "name": "Овощи",
-      "description": "Овощи"
+      "description": "Полезные"
     }
   },
   {
     "model": "catalog.product",
     "pk": 1,
     "fields": {
-      "name": "Бананы",
-      "description": "Сладки и желтые",
-      "photo": "",
+      "name": "Банан",
+      "description": "Желтый и вкусный",
+      "preview": "",
       "category": 1,
-      "price": 150,
-      "created_at": "2024-04-13T14:17:16.019Z",
-      "updated_at": "2024-04-13T14:17:16.019Z"
+      "price": 100,
+      "created_at": "2024-04-16T12:31:00.750Z",
+      "updated_at": "2024-04-16T12:31:00.750Z"
     }
   },
   {
@@ -33,12 +33,12 @@
     "pk": 2,
     "fields": {
       "name": "Гранат",
-      "description": "Красный и круглый",
-      "photo": "",
+      "description": "Красный и кргулый",
+      "preview": "",
       "category": 1,
-      "price": 200,
-      "created_at": "2024-04-13T14:17:45.352Z",
-      "updated_at": "2024-04-13T14:17:45.352Z"
+      "price": 250,
+      "created_at": "2024-04-16T12:31:20.979Z",
+      "updated_at": "2024-04-16T12:31:20.979Z"
     }
   },
   {
@@ -47,11 +47,11 @@
     "fields": {
       "name": "Помидор",
       "description": "Красный и полезный",
-      "photo": "",
+      "preview": "",
       "category": 2,
-      "price": 50,
-      "created_at": "2024-04-13T14:18:08.809Z",
-      "updated_at": "2024-04-13T14:18:08.809Z"
+      "price": 150,
+      "created_at": "2024-04-16T12:31:44.389Z",
+      "updated_at": "2024-04-16T12:31:44.389Z"
     }
   },
   {
@@ -60,11 +60,11 @@
     "fields": {
       "name": "Огурец",
       "description": "Зеленый и длинный",
-      "photo": "",
+      "preview": "",
       "category": 2,
-      "price": 60,
-      "created_at": "2024-04-13T14:18:28.590Z",
-      "updated_at": "2024-04-13T14:18:28.590Z"
+      "price": 140,
+      "created_at": "2024-04-16T12:32:11.178Z",
+      "updated_at": "2024-04-16T12:32:11.178Z"
     }
   }
 ]
