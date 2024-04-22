@@ -20,7 +20,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('catalog.urls', namespace='catalog'))
+  path('admin/', admin.site.urls),
+  path('', include('catalog.urls', namespace='catalog')),
+  path('vlog/', include('vlog.urls', namespace='vlog')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
