@@ -2,8 +2,8 @@ from django.db import models
 
 
 class Vlog(models.Model):
-    name = models.CharField(max_length=300, verbose_name='название статьи')
-    slug = models.CharField(max_length=300, verbose_name='slug', blank=True, null=True)
+    name = models.CharField(max_length=225, verbose_name='название статьи')
+    slug = models.CharField(max_length=225, verbose_name='slug', blank=True, null=True)
     text = models.TextField(blank=True, null=True, verbose_name='содержимое')
     preview = models.ImageField(upload_to='articles/', verbose_name='изображение', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='создано')
