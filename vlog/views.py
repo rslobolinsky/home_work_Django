@@ -26,7 +26,7 @@ class VlogDetailView(DetailView):
 
 class VlogCreateView(CreateView):
     model = Vlog
-    fields = ('name', 'text', 'preview')
+    fields = ('name', 'text', 'preview', 'is_published')
     success_url = reverse_lazy('vlog:list')
 
     def form_valid(self, form):
@@ -39,7 +39,7 @@ class VlogCreateView(CreateView):
 
 class VlogUpdateView(UpdateView):
     model = Vlog
-    fields = ('name', 'text', 'preview')
+    fields = ('name', 'text', 'preview', 'is_published')
 
     def form_valid(self, form):
         if form.is_valid():
