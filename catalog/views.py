@@ -15,12 +15,22 @@ class ProductListView(ListView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        objects = context_data['object_list']
-        for one_object in objects:
-            one_object.version = one_object.version_set.get(is_current=True)
-        context_data['object_list'] = objects
+        products = context_data['object_list']
 
+        for product in products:
+            versions = Version.objects.filter(product=product, is_current=True)
+            if versions:
+                product.version = versions.last()
+        context_data['object_list'] = products
         return context_data
+    # def get_context_data(self, **kwargs):
+    #     context_data = super().get_context_data(**kwargs)
+    #     objects = context_data['object_list']
+    #     for one_object in objects:
+    #         one_object.version = one_object.version_set.get(is_current=True)
+    #     context_data['object_list'] = objects
+    #
+    #     return context_data
 
 
 class ProductDetailView(DetailView):
@@ -31,11 +41,18 @@ class ProductDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
-        product = Product.objects.get(pk=self.object.pk)
-        active_version = product.version_set.filter(is_current=True)
-        context_data['version'] = active_version[0]
-
+        active_version = self.object.version_set.filter(is_current=True).first()
+        if active_version:
+            context_data['version'] = active_version
         return context_data
+    # def get_context_data(self, **kwargs):
+    #     context_data = super().get_context_data(**kwargs)
+    #     product = Product.objects.get(pk=self.object.pk)
+    #     active_version = product.version_set.filter(is_current=True)
+    #     context_data['version'] = active_version[0]
+    #
+    #     return context_data
+
 
 
 class ProductCreateView(CreateView):
