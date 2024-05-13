@@ -23,14 +23,6 @@ class ProductListView(ListView):
                 product.version = versions.last()
         context_data['object_list'] = products
         return context_data
-    # def get_context_data(self, **kwargs):
-    #     context_data = super().get_context_data(**kwargs)
-    #     objects = context_data['object_list']
-    #     for one_object in objects:
-    #         one_object.version = one_object.version_set.get(is_current=True)
-    #     context_data['object_list'] = objects
-    #
-    #     return context_data
 
 
 class ProductDetailView(DetailView):
@@ -45,14 +37,6 @@ class ProductDetailView(DetailView):
         if active_version:
             context_data['version'] = active_version
         return context_data
-    # def get_context_data(self, **kwargs):
-    #     context_data = super().get_context_data(**kwargs)
-    #     product = Product.objects.get(pk=self.object.pk)
-    #     active_version = product.version_set.filter(is_current=True)
-    #     context_data['version'] = active_version[0]
-    #
-    #     return context_data
-
 
 
 class ProductCreateView(CreateView):
