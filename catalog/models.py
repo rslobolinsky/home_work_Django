@@ -1,5 +1,7 @@
 from django.db import models
 
+from users.models import User
+
 # Create your models here.
 NULLABLE = {'blank': True, 'null': True}
 
@@ -24,7 +26,7 @@ class Product(models.Model):
     price = models.IntegerField(verbose_name='Цена')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания (записи в БД)')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата последнего изменения (записи в БД)')
-
+    owner = models.ForeignKey(User, on_delete=models.SET_NULL, verbose_name='Владелец', **NULLABLE)
     # manufactured_at = models.DateTimeField(**NULLABLE, verbose_name='Дата производства продукта')
 
     def __str__(self):
