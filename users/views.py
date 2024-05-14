@@ -19,13 +19,13 @@ class UserCreateView(CreateView):
     success_url = reverse_lazy('users:login')
 
     def form_valid(self, form):
-        user = form.save()
+        user = form.save(commit=False)
         user.is_active = False
         token = secrets.token_hex(16)
         user.token = token
         user.save()
         host = self.request.get_host()
-        url = f'http//{host}/users/email-confirm/{token}/'
+        url = f'http://{host}/users/email-confirm/{token}/'
         send_mail(
             subject='Подтверждение почты',
             message=f'Привет, перейдите по ссылке, чтобы подтвердить почту: {url}',

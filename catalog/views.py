@@ -4,7 +4,6 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 
-
 from catalog.forms import ProductForm, VersionForm
 from catalog.models import Product, Version
 
@@ -46,14 +45,14 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
     form_class = ProductForm
     success_url = reverse_lazy('catalog:home')
 
-    login_url = '/users/register/'
+    #login_url = '/users/register/'
 
     def form_valid(self, form):
         product = form.save()
         user = self.request.user
         product.owner = user
         product.save()
-        return super().form_invalid(form)
+        return super().form_valid(form)
 
 
 class ProductUpdateView(LoginRequiredMixin, UpdateView):
@@ -61,7 +60,7 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
     form_class = ProductForm
     success_url = reverse_lazy('catalog:home')
 
-    login_url = '/users/register/'
+    #login_url = '/users/register/'
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
@@ -86,10 +85,11 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
             return self.render_to_response(self.get_context_data(form=form, formset=formset))
 
 
-class ProductDeleteView(DeleteView):
+class ProductDeleteView(LoginRequiredMixin, DeleteView):
     model = Product
     success_url = reverse_lazy('catalog:home')
-    login_url = '/users/register/'
+    #login_url = '/users/register/'
+
 
 class ContactsPageView(TemplateView):
     template_name = 'catalog/contacts.html'
