@@ -27,6 +27,8 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания (записи в БД)')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата последнего изменения (записи в БД)')
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, verbose_name='Владелец', **NULLABLE)
+    is_published = models.BooleanField(default=False)
+
     # manufactured_at = models.DateTimeField(**NULLABLE, verbose_name='Дата производства продукта')
 
     def __str__(self):
@@ -35,6 +37,12 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
+
+        permissions = [
+            ('can_edit_category', 'Can edit category'),
+            ('can_edit_description', 'Can edit description'),
+            ('can_change_published', 'Can change publishing'),
+        ]
 
 
 class Version(models.Model):
