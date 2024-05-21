@@ -12,7 +12,7 @@
         <div class="col-3">
             <div class="card mb-4 box-shadow">
                 <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">{{ object.name|title }}</h4>
+                    <h4 class="my-0 font-weight-normal">{{object.name|title}}</h4>
                     <p class="card-text">Текущая версия: {{object.version}}</p>
                 </div>
                 <div class="card-body">
@@ -20,8 +20,7 @@
                     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                         <a href="{% url 'catalog:product' object.pk %}" type="button"
                            class="btn btn-sm btn-outline-primary">Перейти</a>
-                        {% if perms.catalog.can_edit_category and perms.catalog.can_edit_description and
-                        perms.catalog.can_change_published or user == object.owner %}
+                        {%if perms.catalog.can_edit_category and perms.catalog.can_edit_description and perms.catalog.can_change_published or user == object.owner%}
                         <a href="{% url 'catalog:update' object.pk %}" type="button"
                            class="btn btn-sm btn-outline-secondary">Изменить</a>
                         {% endif %}
