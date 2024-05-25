@@ -137,9 +137,9 @@ LOGIN_URL = reverse_lazy('users:login')
 LOGIN_REDIRECT_URL = reverse_lazy('users:login')
 LOGOUT_REDIRECT_URL = reverse_lazy('users:login')
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = "rslobolinsky13@gmail.com"
+EMAIL_HOST = 'smtp.yandex.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "romanslobolinsky@yandex.ru"
 EMAIL_HOST_PASSWORD = "82Rs1995"
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
