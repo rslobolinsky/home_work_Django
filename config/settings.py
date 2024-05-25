@@ -139,8 +139,8 @@ LOGOUT_REDIRECT_URL = reverse_lazy('users:login')
 
 EMAIL_HOST = 'smtp.yandex.com'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = "romanslobolinsky@yandex.ru"
-EMAIL_HOST_PASSWORD = "82Rs1995"
+EMAIL_HOST_USER = "romansl1313@yandex.ru"
+EMAIL_HOST_PASSWORD = "RoMaN199"
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
