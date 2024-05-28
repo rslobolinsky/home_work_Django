@@ -6,7 +6,8 @@ from django.views.generic import ListView, DetailView, TemplateView, CreateView,
 from django.core.exceptions import PermissionDenied
 
 from catalog.forms import ProductForm, VersionForm, ProductModeratorForm
-from catalog.models import Product, Version
+from catalog.models import Product, Version, Category
+from catalog.services import get_products_from_cache, get_categories_from_cache
 
 
 class ProductListView(ListView):
@@ -25,6 +26,9 @@ class ProductListView(ListView):
                 product.version = versions.last()
         context_data['object_list'] = products
         return context_data
+
+    def get_queryset(self):
+        return get_products_from_cache()
 
 
 class ProductDetailView(DetailView):
@@ -94,6 +98,14 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
 class ProductDeleteView(LoginRequiredMixin, DeleteView):
     model = Product
     success_url = reverse_lazy('catalog:home')
+
+
+class CategoryListView(LoginRequiredMixin, ListView):
+    model = Category
+    login_url = '/users/register/'
+
+    def get_queryset(self):
+        return get_categories_from_cache()
 
 
 class ContactsPageView(TemplateView):
